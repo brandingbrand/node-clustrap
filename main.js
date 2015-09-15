@@ -40,8 +40,8 @@ module.exports = function(app, options) {
     }
 
     cluster.on('exit', function(worker, code, signal) {
-      logger.error(('worker ' + worker.process.pid + ' died').red + ', reforking...')
-      var worker = cluster.fork()
+      logger.error(('worker ' + worker.process.pid + ' died').red + ', exiting...')
+      process.exit();
     })
     
     var debug_mode = false
